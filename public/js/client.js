@@ -227,6 +227,8 @@ var Client = (function(window) {
 
     // Forfeit game
     container.on(clickVariable, '#forfeit', function(ev) {
+      window.location = '/';
+      return;
       showForfeitPrompt(function(confirmed) {
         if (confirmed) {
           messages.empty();

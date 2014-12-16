@@ -67,10 +67,10 @@ table { border-collapse: collapse; }
 #board .square {
   width: 85px; 
   height: 85px; 
-  font-size: 80px; 
-  line-height: 80px; 
+  font-size: 70px; 
+  line-height: 70px; 
   text-align: center;
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 #b1, #d1, #f1, #h1, #a2, #c2, #e2, #g2, #b3, #d3, #f3, #h3, #a4, #c4, #e4, #g4,
