@@ -26,6 +26,8 @@ var Client = (function(window) {
    * Initialize the UI
    */
   var init = function(config) {
+    console.log('running init');
+
     gameID      = config.gameID;
     playerColor = config.playerColor;
     playerName  = config.playerName;
@@ -44,6 +46,7 @@ var Client = (function(window) {
 
     // Create socket connection
     socket = io.connect();
+    console.log(socket);
 
     // Define board based on player's perspective
     assignSquares();
@@ -240,14 +243,15 @@ var Client = (function(window) {
 
     // Update UI with new game state
     socket.on('update', function(data) {
-      console.log(data);
+      console.log('update from server: ', data);
       gameState = data;
       update();
+      Eye.update();
     });
 
     // Display an error
     socket.on('error', function(data) {
-      console.log(data);
+      console.log('socket error: ', data);
       showErrorMessage(data);
     });
   };

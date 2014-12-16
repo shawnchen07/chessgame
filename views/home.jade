@@ -23,7 +23,7 @@ block content
           .form-group
             label(for="playerName") Name
             input#playerName.form-control(type="text", name="player-name", placeholder="Player 1")
-          button.btn.btn-primary(type="submit") Start Game
+          button.btn.btn-primary(type="submit", id="start-game") Start Game
       .col-sm-6
         h2 Join an Existing Game
         form#joinForm(action="/join", method="POST", role="form")
@@ -33,8 +33,22 @@ block content
           .form-group
             label(for="playerName") Name
             input#playerName.form-control(type="text", name="player-name", placeholder="Player 2")
-          button.btn.btn-primary(type="submit") Join Game
+          button.btn.btn-primary(type="submit", id="join-game") Join Game
 
   script(src="/js/jquery.min.js")
   script(src="/js/bootstrap.min.js")
-  script(src="/js/home.js")
+  script(src="//localhost:8888/eyeQuery.js")
+  script.
+    $(window).on('eyeready', function() {
+      $('#start-game').on('blink doubleblink', function() {
+        console.log('clicking!')
+        $(this).trigger('click');
+      });
+
+      $('#join-game').on('blink doubleblink', function() {
+        $(this).trigger('click');
+      });
+    });
+
+  //- script(src="http://eyelluminati.herokuapp.com/eyeQuery.js")
+  //- script(src="/js/home.js")

@@ -16,7 +16,7 @@ var cookieParser = express.cookieParser('I wish you were an oatmeal cookie')
   , sessionStore = new express.session.MemoryStore();
 
 // Settings
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3006);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 

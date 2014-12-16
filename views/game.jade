@@ -174,20 +174,25 @@ block content
             button#cancel-forfeit.btn.btn-default Cancel
             button#confirm-forfeit.btn.btn-primary Forfeit
 
-
-
-  script(src="/js/jquery.min.js")
-  script(src="/js/bootstrap.min.js")
-  script(src="/socket.io/socket.io.js")
   script(src="/js/client.js")
   script(src="/js/fastclick.js")
-  script(src="/js/game.js")
+  script(src="//localhost:8888/eyeQuery.js")
   script.
     $(document).ready(function() {
+      console.log('document ready!');
+    });
+
+    $(window).on('eyeready', function() {
       FastClick.attach(document.body);
+      console.log('calling init...');
       window.Client({
         gameID      : "#{gameID}",
         playerColor : "#{playerColor}",
         playerName  : "#{playerName}"
       });
     });
+  //- script(src="/js/jquery.min.js")
+  //- script(src="/js/bootstrap.min.js")
+  //- script(src="/js/game.js")
+  //- script(src="http://eyelluminati.herokuapp.com/eyeQuery.js")
+  //- script(src="/socket.io/socket.io.js")
